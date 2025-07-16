@@ -5,21 +5,21 @@ using System.Threading;
 
 public class RoundRobinScheduler : IScheduler
 {
-    private ConcurrentQueue<ICommand> commandQueue = new ConcurrentQueue<ICommand>();
-    private readonly object lockObject = new object();
+    private ConcurrentQueue<ICommand> command_queue = new ConcurrentQueue<ICommand>();
+    private readonly object lock_object = new object();
 
     public bool HasCommand()
     {
-        return commandQueue.Count() > 0;
+        return command_queue.Count() > 0;
     }
 
     public ICommand Select()
     {
-        lock (lockObject)
+        lock (lock_object)
         {
-            if (commandQueue.TryDequeue(out ICommand cmd))
+            if (command_queue.TryDequeue(out ICommand command))
             {
-                return cmd;
+                return command;
             }
             return null;
         }
@@ -27,6 +27,6 @@ public class RoundRobinScheduler : IScheduler
 
     public void Add(ICommand cmd)
     {
-        commandQueue.Enqueue(cmd);
+        command_queue.Enqueue(cmd);
     }
 }

@@ -11,7 +11,7 @@ public class ServerThread
     public bool is_running = true;
     private IScheduler scheduler = new RoundRobinScheduler();
     public int id { get; set; }
-    private bool useScheduler = true;
+    private bool use_scheduler = true;
 
     public void Start()
     {
@@ -42,9 +42,9 @@ public class ServerThread
 
     private void Run()
     {
-        while(!hard_stop)
+        while (!hard_stop)
         {
-            if (scheduler.HasCommand() && (useScheduler || !(commands.Count() > 0)))
+            if (scheduler.HasCommand() && (use_scheduler || !(commands.Count() > 0)))
             {
                 var command = scheduler.Select();
                 if (command != null)
@@ -55,7 +55,7 @@ public class ServerThread
                         scheduler.Add(command);
                     }
                 }
-                useScheduler = false;
+                use_scheduler = false;
             }
             else if (commands.TryDequeue(out ICommand command))
             {
@@ -64,61 +64,62 @@ public class ServerThread
                 {
                     scheduler.Add(command);
                 }
-                useScheduler = true;
+                use_scheduler = true;
             }
             else
             {
                 if (soft_stop) { break; }
                 Thread.Sleep(100);
-                useScheduler = true;
+                use_scheduler = true;
             }
         }
+
         is_running = false;
     }
 }
 
 public class HardStopCommand : ICommand
 {
-    private ServerThread thread;
+    private ServerThread _thread;
 
     public HardStopCommand(ServerThread thread)
     {
-        this.thread = thread;
+        _thread = thread;
     }
 
     public void Execute()
     {
-        if(Thread.CurrentThread.ManagedThreadId == thread.id)
+        if(Thread.CurrentThread.ManagedThreadId == _thread.id)
         {
-            thread.HardStop();
+            _thread.HardStop();
         }
         else
         {
-            throw new ("HardStop can only be executed in the thread it is stopping");
+            throw new ("HardStop может быть выполнена только в том потоке, который она останавливает.");
         }
     }
-    public bool IsCompleted(){return true;} 
+    public bool IsCompleted() { return true; } 
 }
 
 public class SoftStopCommand : ICommand
 {
-    private ServerThread thread;
+    private ServerThread _thread;
 
     public SoftStopCommand(ServerThread thread)
     {
-        this.thread = thread;
+        _thread = thread;
     }
 
     public void Execute()
     {
-        if(Thread.CurrentThread.ManagedThreadId == thread.id) 
+        if(Thread.CurrentThread.ManagedThreadId == _thread.id) 
         {
-            thread.SoftStop();
+            _thread.SoftStop();
         }
         else
         {
-            throw new ("SoftStop can only be executed in the thread it is stopping");
+            throw new ("SoftStop  быть выполнена только в том потоке, который она останавливает.");
         }
     }
-    public bool IsCompleted(){return true;} 
+    public bool IsCompleted() { return true; } 
 }
