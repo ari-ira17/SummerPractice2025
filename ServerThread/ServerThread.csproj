@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ICommand\ICommand.csproj" />
-    <ProjectReference Include="..\IShelder\IShelder.csproj" />
+    <ProjectReference Include="..\IScheduler\IScheduler.csproj" />
     <ProjectReference Include="..\RoundRobin\RoundRobin.csproj" />
   </ItemGroup>
 

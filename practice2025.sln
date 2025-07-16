@@ -5,13 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICommand", "ICommand\ICommand.csproj", "{42C908E1-53A1-4925-B148-4D43BBD487DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IShelder", "IShelder\IShelder.csproj", "{4B0073EF-D463-4F88-B4DB-262CA2C3E1AC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerThread", "ServerThread\ServerThread.csproj", "{5E8FAFD2-B26E-49F9-B3BD-A0F3B836C5EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoundRobin", "RoundRobin\RoundRobin.csproj", "{DCC0E291-F97C-47B6-B3D9-8A502463FA42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "task18tests", "task18tests\task18tests.csproj", "{389434AE-705D-4613-9B44-7C29906B1950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IScheduler", "IScheduler\IScheduler.csproj", "{ABA15EAF-13EA-490D-A25C-EE6EFC2BCFEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +26,6 @@ Global
 		{42C908E1-53A1-4925-B148-4D43BBD487DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42C908E1-53A1-4925-B148-4D43BBD487DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42C908E1-53A1-4925-B148-4D43BBD487DE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B0073EF-D463-4F88-B4DB-262CA2C3E1AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B0073EF-D463-4F88-B4DB-262CA2C3E1AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B0073EF-D463-4F88-B4DB-262CA2C3E1AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B0073EF-D463-4F88-B4DB-262CA2C3E1AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5E8FAFD2-B26E-49F9-B3BD-A0F3B836C5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5E8FAFD2-B26E-49F9-B3BD-A0F3B836C5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E8FAFD2-B26E-49F9-B3BD-A0F3B836C5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,5 +38,9 @@ Global
 		{389434AE-705D-4613-9B44-7C29906B1950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{389434AE-705D-4613-9B44-7C29906B1950}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{389434AE-705D-4613-9B44-7C29906B1950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABA15EAF-13EA-490D-A25C-EE6EFC2BCFEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABA15EAF-13EA-490D-A25C-EE6EFC2BCFEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABA15EAF-13EA-490D-A25C-EE6EFC2BCFEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABA15EAF-13EA-490D-A25C-EE6EFC2BCFEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
