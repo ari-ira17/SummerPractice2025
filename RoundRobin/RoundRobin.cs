@@ -25,8 +25,8 @@ public class RoundRobinScheduler : IScheduler
         }
     }
 
-    public void Add(ICommand cmd)
+    public void Add(ICommand command)
     {
-        command_queue.Enqueue(cmd);
+        command_queue.Enqueue(command);
     }
 }
