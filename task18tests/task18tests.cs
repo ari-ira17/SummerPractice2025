@@ -55,7 +55,7 @@ public class BasicCommand : ICommand
 
 public class LongRunningCommand : ICommand
 {
-    private int steps = 1000;
+    private int steps = 1000000;
     private int current_step = 0;
 
     public void Execute()
