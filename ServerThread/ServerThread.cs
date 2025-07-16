@@ -50,12 +50,22 @@ public class ServerThread
                 if (command != null)
                 {
                     command.Execute();
+                    if (!command.IsCompleted())
+                    {
+                        scheduler.Add(command);
+                    }
+
                 }
                 use_scheduler = false;
             }
             else if (commands.TryDequeue(out ICommand command))
             {
                 command.Execute();
+                if (!command.IsCompleted())
+                {
+                    scheduler.Add(command);
+                }
+                use_scheduler = true;
             }
             else
             {
@@ -89,6 +99,8 @@ public class HardStopCommand : ICommand
             throw new ("HardStop может быть выполнена только в том потоке, который она останавливает.");
         }
     }
+
+    public bool IsCompleted() { return true; } 
 }
 
 public class SoftStopCommand : ICommand
@@ -111,4 +123,6 @@ public class SoftStopCommand : ICommand
             throw new ("SoftStop  быть выполнена только в том потоке, который она останавливает.");
         }
     }
+
+    public bool IsCompleted() { return true; } 
 }
